@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Belajar form html</title>
+    </head>
+    <body>
+                    <style>
+            h1{
+                text-align: center;
+                color: solid black;
+                font-style: inherit;
+            }
+            </style>
+            <h1>Survey Kepuasan Pelanggan</h1>
+            <form action="#" class="container">
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" id = "nama" />
+                <br />
+                <h1></h1>
+
+                <label for="umur">Umur</label>
+                <input type="text" name="Umur" id = "umur" />
+                <br />
+                <h1></h1>
+
+                <label for="jeniskelamin">Jenis Kelamin</label>
+                <br />
+                <input type="radio" name="jeniskelamin" id="jeniskelamin" value="Laki-laki"/> Laki-laki
+                <input type="radio" name="jeniskelamin" id="jeniskelamin" value="Prempuan"/> Perempuan
+                <h1></h1>
+
+                <label for="kepuasan">Nilai Kepuasan (1-5)</label>
+                <input type="number" name="kepuasan" id="kepuasan"/>
+                <br/>
+                <h1></h1>
+
+                <label for="ttgproduk">Darimana anda mengetahui produk kami ? </label>
+                <br/>
+                <input type="checkbox" name="ttgproduk" id="ttgproduk" value="Sosial Media"/> Sosial Media
+                <br />
+                <input type="checkbox" name="ttgproduk" id="ttgproduk" value="Teman"/> Teman
+                <br/>
+                <input type="checkbox" name="ttgproduk" id="ttgproduk" value="Internet"/> Internet
+                
+                <h1></h1>
+                <label for="surveyyy">Apakah anda menggunakan layanan kami ?</label>
+                <br />
+                <input type="radio" name="surveyyy" id="surveyyy" value="Iya"/> Iya
+                <input type="radio" name="surveyyy" id="surveyyy" value="Tidak"/> Tidak
+                <h1></h1>
+
+                <h1></h1>
+
+                <label for="kritiksaran">Kritik dan Saran</label>
+                <br />
+                <textarea name="kritiksaran" id="kritiksaran" cols="30" rows="3"></textarea>
+                <h1></h1>
+
+                <input type="button" value="Kirim" onclick="tampilData()"/>
+            </form>
+
+            <script>
+                function tampilData(){
+                    var nama = document.getElementById("nama").value;
+                    var umur = document.getElementById("umur").value;
+                    var kepuasan = document.getElementById("kepuasan").value;
+                    var kritiksaran= document.getElementById("kritiksaran").value;
+                    var jeniskelamin = document.querySelector("input[name=jeniskelamin]:checked").value;
+                    var surveyyy = document.querySelector("input[name=surveyyy]:checked").value;
+                    var ttgproduk = document.getElementsByName("ttgproduk");
+                    var daftarproduk =''
+
+                    for(var produk2 of ttgproduk){
+                        if(produk2.checked){
+                            daftarproduk +=','+produk2.value
+                        }
+                    }
+
+                    daftarproduk = daftarproduk.substring(1)
+
+                    alert(
+                        "Nama : "+
+                        nama +
+                        "\nUmur: "+
+                        umur+
+                        "\nJenis Kelamin : "+
+                        jeniskelamin+
+                        "\nKepuasan: "+
+                        kepuasan+
+                        "\nSaya mengetahui produk anda dari : "+
+                        daftarproduk+
+                        "\nApakah anda menggunakan layanan kami ? : "+
+                        surveyyy+
+                        "\nKritik Dan Saran : "+
+                        kritiksaran
+                    );
+                }
+            </script>
+    </body>
+
+</html>
